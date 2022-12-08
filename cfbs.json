@@ -22,9 +22,9 @@
             },
             {
               "key": "user_list",
-              "type": "list",
-              "label": "User List",
-              "question": "List of users"
+              "type": "string",
+              "label": "User List (comma separated)",
+              "question": "List of users (comma separated)"
             }
           ],
           "while": "Specify another group of users?"
