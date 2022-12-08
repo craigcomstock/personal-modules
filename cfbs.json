@@ -42,7 +42,12 @@
           "while": "Specify another group of users?"
         }
       ],
-      "steps": []
+      "steps": [
+        "copy create-user-accounts.cf services/cfbs/modules/create-user-accounts/create-user-accounts.cf",
+        "input create-user-accounts/input.json def.json",
+        "bundles create_user_accounts",
+        "policy_files services/cfbs/modules/create-user-accounts/create-user-accounts.cf"
+      ]
     }
   }
 }
