@@ -1,0 +1,36 @@
+{
+  "name": "personal-modules",
+  "description": "Repository of modules for the hobbyist/developer",
+  "type": "module-repo",
+  "provides": {
+    "create-user-accounts": {
+      "description": "Create user accounts according to class expression and list of users",
+      "subdirectory": "create-user-accounts",
+      "version": "0.0.1",
+      "by": "https://github.com/craigcomstock",
+      "input": [
+        {
+          "type": "list",
+          "variable": "class_expressions",
+          "label": "Class Expressions",
+          "subtype": [
+            {
+              "key": "class_expression",
+              "type": "string",
+              "label": "Class Expression",
+              "question": "Class expression"
+            },
+            {
+              "key": "user_list",
+              "type": "list",
+              "label": "User List",
+              "question": "List of users"
+            }
+          ],
+          "while": "Specify another group of users?"
+        }
+      ],
+      "steps": []
+    }
+  }
+}

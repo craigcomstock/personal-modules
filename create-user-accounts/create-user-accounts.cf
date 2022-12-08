@@ -1,0 +1,10 @@
+# @brief create user accounts on systems
+# based on a class expression and a list of usernames
+# { "<class-expression>": [ <list of user names> ], ... }
+# e.g.
+# { "cfengine": [ "craig" ], "family": [ "craig", "partner", "kid", "guest" ] }
+bundle agent create_user_accounts
+{
+  reports: "hi";
+}
+
