@@ -1,12 +1,13 @@
 # inspiration/examples from https://cfengine.com/blog/2020/personal-policy/
 # @brief create user accounts on systems
 # given data from cfbs inputs, create users based on class expression
+# a list data container is given at default:create_user_accounts.users
 # and user data including: user name, hashed password and secondary groups
 bundle agent create_user_accounts
 {
   vars:
       "skel" string => "/etc/skel";
-      "users" slist => getindices( users );
+#      "user" slist => getindices( users );
 
   users:
     "${user}"
@@ -20,6 +21,12 @@ bundle agent create_user_accounts
       "/home/${user}"
         perms => og("${user}", "${user}"),
         depth_search => recurse("inf");
+
+  reports:
+    "users is ${with}" with => storejson(users);
+    "default:create_user_accounts.users is ${with}" with => storejson("default:create_user_accounts.users");
+    "data:create_user_accounts.users is ${with}" with => storejson("data:create_user_accounts.users");
+     "Hello from create_user_accounts bundle";
 }
 
 bundle agent home_skel(user, skel)
